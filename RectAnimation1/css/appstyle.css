@@ -1,0 +1,102 @@
+html, body {  /* Select and size the outermost elements so other elements can be set in % */
+	height:100%;
+	width:99%;
+}
+
+body {
+   font: 24px Helvetica;
+   background-color: grey;
+  }
+
+  #main {  /* select element with id="main" */ 
+   min-height: 70%;
+   max-height: 70%;
+   margin: 0px;
+   padding: 0px;
+   display:  flex;
+   flex-flow: row;
+   }
+ 
+  #main > article { /* select articles (if they are inside the element with id="main") */ 
+   margin: 4px;
+   padding: 5px;
+   border: 1px solid #cccc33;
+   border-radius: 7pt;
+   background: #dddd88;
+   flex: 3 1 50%;
+   order: 2;
+   overflow: scroll;
+   }
+
+  #main > #centerDiv {
+   margin: 4px;
+   padding: 5px;
+   border: 1px solid #cccc33;
+   border-radius: 7pt;
+   background: #dddd88;
+   flex: 3 1 50%;
+   order: 2;
+   overflow: scroll;
+   text-align: center;
+   }
+
+  #main > nav {
+   margin: 4px;
+   padding: 5px;
+   border: 1px solid #8888bb;
+   border-radius: 7pt;
+   background: #ccccff;
+           flex: 1 6 15%;
+           order: 1;
+   }
+  
+  #main > aside {
+   margin: 4px;
+   padding: 5px;
+   border: 1px solid #8888bb;
+   border-radius: 7pt;
+   background: #ccccff;
+           flex: 1 6 15%;
+           order: 3;
+
+   }
+ 
+  header, footer {  /* select all header and footer elements */
+   display: block;
+   margin: 4px;
+   padding: 5px;
+   min-height: 10%;
+   border: 1px solid #eebb55;
+   border-radius: 7pt;
+   background: #ffeebb;
+   text-align: center;
+   }
+
+  footer {    /* override these attributes just for the footer elements */
+   font-size: 10pt;
+   text-align: left;
+   }
+
+
+ 
+  /* Changes layout under these conditions : Too narrow to support three columns */
+  /* "at-rules" using the '@' sign is an "advanced" feature */ 
+  @media all and (max-width: 640px) {
+  
+   #main, #page {
+    flex-flow: column;
+    flex-direction: column;
+   }
+
+   #main > article, #main > nav, #main > aside {
+    /* Return them to document order */
+            order: 0;
+   }
+  
+   #main > nav, #main > aside, header, footer {
+    min-height: 50px;
+    max-height: 50px;
+   }
+  
+};
+
